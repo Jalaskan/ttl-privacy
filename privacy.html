@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Time To Learn</title>
+  <link rel="icon" href="AppIcon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0f0f0f; --bg2: #141414; --card: #1c1c1e; --input: #2c2c2e;
+      --border: #2a2a2a; --orange: #FF6B00; --text: #ffffff;
+      --muted: #888888; --faint: #444444;
+      --display: 'Syne', sans-serif; --body: 'DM Sans', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--body); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    a { color: var(--orange); text-decoration: underline; text-underline-offset: 3px; }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; height: 64px;
+      background: rgba(15,15,15,.88); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
+    .nav-logo img { width: 32px; height: 32px; border-radius: 8px; }
+    .nav-logo span { font-family: var(--display); font-size: 17px; font-weight: 800; letter-spacing: -.5px; }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--orange); color: #fff; text-decoration: none;
+      font-family: var(--display); font-size: 13px; font-weight: 700;
+      padding: 9px 18px; border-radius: 8px; transition: opacity .2s;
+    }
+    .nav-cta:hover { opacity: .88; }
+    .legal-wrap { max-width: 720px; margin: 0 auto; padding: 120px 2rem 6rem; }
+    .legal-tag { font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; }
+    .legal-wrap h1 { font-family: var(--display); font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -1.5px; line-height: 1.05; margin-bottom: .5rem; }
+    .legal-meta { font-size: 13px; color: var(--faint); margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid var(--border); }
+    .callout { background: rgba(255,107,0,.08); border: 1px solid rgba(255,107,0,.2); border-radius: 12px; padding: 1.25rem 1.5rem; margin: 2rem 0; font-size: .925rem; color: var(--muted); font-weight: 300; line-height: 1.7; }
+    .callout strong { color: var(--orange); font-weight: 500; }
+    h2 { font-family: var(--display); font-size: 1.1rem; font-weight: 700; letter-spacing: -.3px; color: var(--text); margin: 3rem 0 .75rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    h2:first-of-type { border-top: none; padding-top: 0; margin-top: 1rem; }
+    p { font-size: .95rem; color: var(--muted); line-height: 1.8; font-weight: 300; margin-bottom: 1rem; }
+    ul { list-style: none; margin: 1rem 0 1.5rem; display: flex; flex-direction: column; gap: .6rem; }
+    ul li { font-size: .95rem; color: var(--muted); font-weight: 300; line-height: 1.7; padding-left: 1.25rem; position: relative; }
+    ul li::before { content: '—'; position: absolute; left: 0; color: var(--orange); font-size: .85rem; }
+    strong { color: var(--text); font-weight: 500; }
+    table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .875rem; }
+    th { text-align: left; font-family: var(--display); font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--faint); padding: .6rem 1rem .6rem 0; border-bottom: 1px solid var(--border); }
+    td { padding: .8rem 1rem .8rem 0; border-bottom: 1px solid var(--border); color: var(--muted); font-weight: 300; line-height: 1.6; vertical-align: top; }
+    td:first-child { color: var(--text); font-weight: 500; white-space: nowrap; padding-right: 2rem; }
+    footer { border-top: 1px solid var(--border); padding: 2rem; display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: var(--faint); flex-wrap: wrap; gap: 1rem; }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="AppIcon.png" alt="TTL" />
+      <span>Time To Learn</span>
+    </a>
+    <a href="https://apps.apple.com/app/id6766273932" class="nav-cta" target="_blank" rel="noopener">Download free</a>
+  </nav>
+
+  <div class="legal-wrap">
+    <div class="legal-tag">Legal</div>
+    <h1>Privacy Policy</h1>
+    <p class="legal-meta">Last updated: June 2026 &nbsp;·&nbsp; Effective immediately</p>
+
+    <div class="callout">
+      <strong>The short version:</strong> We collect as little data as possible. We don't know who you are, we don't sell anything about you, and your lesson content stays on your device or in your private iCloud. This policy explains what we do collect and why.
+    </div>
+
+    <h2>Who we are</h2>
+    <p>Time To Learn ("TTL", "we", "us") is an iOS application. If you have questions about this policy, <a href="mailto:jamieasbright@gmail.com">click here to email us</a>.</p>
+
+    <h2>What we collect</h2>
+    <p>TTL is designed to work without collecting personal information. Here is everything we do collect:</p>
+    <ul>
+      <li><strong>Device identifier (IDFV)</strong> — Apple's Identifier for Vendor. A device-level identifier that cannot be linked to your Apple ID or personal identity. Resets if you uninstall. Used solely for anonymous analytics.</li>
+      <li><strong>Anonymous usage events</strong> — events such as "lesson generated", "app opened", and "lesson completed" sent to Mixpanel. These contain no personal identifiers, no lesson content, and no location data.</li>
+      <li><strong>Subscription status</strong> — whether you are on the free, monthly, or annual plan. Managed entirely by Apple via StoreKit 2. We do not receive or store your payment details.</li>
+      <li><strong>Saved lessons (annual subscribers only)</strong> — lessons you choose to save are stored in your private iCloud container. This data is controlled by you and cannot be accessed by us.</li>
+    </ul>
+
+    <h2>What we do not collect</h2>
+    <ul>
+      <li>Your name, email address, or Apple ID</li>
+      <li>Your location or GPS data</li>
+      <li>Microphone, camera, or contacts access</li>
+      <li>The subjects or content of your lessons</li>
+      <li>Browsing history or cross-app tracking</li>
+    </ul>
+
+    <h2>How your lessons are generated</h2>
+    <p>When you generate a lesson, your chosen subject and settings are sent to our secure proxy, which uses AI services to generate the script and audio narration. These requests contain only your lesson topic and configuration — no personal information is included.</p>
+    <p>An anonymised copy of each generated lesson (subject, depth, duration — no audio, no identifying information) is stored in a public database to power our lesson cache and featured lessons. This anonymised record cannot be linked back to you.</p>
+
+    <h2>Third-party services</h2>
+    <p>TTL uses the following third-party services to operate. Each governs data sent to them under their own privacy policy:</p>
+    <table>
+      <thead>
+        <tr><th>Service</th><th>Purpose</th><th>Data sent</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>AI lesson generation</td><td>Script creation</td><td>Lesson subject and settings</td></tr>
+        <tr><td>AI narration</td><td>Audio generation</td><td>Lesson script text</td></tr>
+        <tr><td>API proxy</td><td>Secure routing</td><td>Lesson request data</td></tr>
+        <tr><td>Apple CloudKit</td><td>Lesson cache and saved lessons</td><td>Anonymised lesson metadata; private saved lessons for annual subscribers</td></tr>
+        <tr><td>Mixpanel (EU)</td><td>Anonymous usage analytics</td><td>IDFV, event names, app version</td></tr>
+        <tr><td>Google AdMob</td><td>Advertising (free tier only)</td><td>Device advertising identifiers per Google's policy</td></tr>
+        <tr><td>Unsplash</td><td>Lesson photography</td><td>Search query (lesson subject only)</td></tr>
+        <tr><td>Apple StoreKit 2</td><td>Subscription management</td><td>Handled entirely by Apple</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Advertising</h2>
+    <p>Free plan users see banner advertisements served by Google AdMob. AdMob may use device advertising identifiers to show relevant ads. You can limit ad tracking in iPhone Settings → Privacy & Security → Tracking. Paid subscribers see no ads.</p>
+
+    <h2>Analytics</h2>
+    <p>We use Mixpanel routed through the EU endpoint to understand how the app is used in aggregate. All analytics are anonymised. We do not use analytics to identify individual users or build personal profiles.</p>
+
+    <h2>Data retention</h2>
+    <p>Anonymous analytics events are retained for up to 12 months. Saved lessons in your private iCloud container are retained until you delete them or uninstall the app. The anonymised lesson cache is retained to power the featured lessons feature and contains no information that could identify you.</p>
+
+    <h2>Your rights</h2>
+    <p>Under applicable data protection law you have the right to access, correct, or request deletion of personal data we hold. Because TTL does not collect personally identifiable information, there is typically nothing to action. You can:</p>
+    <ul>
+      <li>Opt out of analytics by uninstalling the app</li>
+      <li>Delete saved lessons from within the app or via iCloud settings</li>
+      <li>Manage ad tracking in iPhone Settings → Privacy & Security → Tracking</li>
+      <li><a href="mailto:jamieasbright@gmail.com">Contact us</a> with any data requests</li>
+    </ul>
+
+    <h2>Children</h2>
+    <p>TTL is not directed at children under 13 (or 16 in certain jurisdictions). We do not knowingly collect data from children.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>We may update this Privacy Policy from time to time. When we do we will update the date above. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+
+    <h2>Contact</h2>
+    <p>Questions or data requests: <a href="mailto:jamieasbright@gmail.com">click here to email us</a>.</p>
+  </div>
+
+  <footer>
+    <span>© 2026 Time To Learn. All rights reserved.</span>
+    <span>
+      <a href="index.html">Home</a> &nbsp;·&nbsp;
+      <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
+      <a href="terms.html">Terms of Service</a>
+    </span>
+  </footer>
+</body>
+</html>

@@ -1,153 +1,575 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy — Time To Learn</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #0f0f0f;
-            color: #e0e0e0;
-            line-height: 1.7;
-            padding: 40px 20px;
-        }
-        .container { max-width: 720px; margin: 0 auto; }
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 48px;
-        }
-        .logo-icon {
-            width: 44px;
-            height: 44px;
-            background: #f5a623;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-        }
-        .logo-text { font-size: 20px; font-weight: 700; color: #fff; }
-        .logo-sub { font-size: 11px; color: #f5a623; letter-spacing: 1.5px; }
-        h1 { font-size: 32px; font-weight: 800; color: #fff; margin-bottom: 8px; }
-        .subtitle { color: #888; font-size: 14px; margin-bottom: 48px; }
-        h2 {
-            font-size: 18px;
-            font-weight: 700;
-            color: #fff;
-            margin-top: 40px;
-            margin-bottom: 12px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #222;
-        }
-        p { color: #aaa; margin-bottom: 16px; font-size: 15px; }
-        ul { color: #aaa; margin-bottom: 16px; padding-left: 20px; font-size: 15px; }
-        li { margin-bottom: 8px; }
-        a { color: #f5a623; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .highlight {
-            background: #1a1a1a;
-            border: 1px solid #2a2a2a;
-            border-left: 3px solid #f5a623;
-            border-radius: 8px;
-            padding: 16px 20px;
-            margin: 24px 0;
-            color: #ccc;
-            font-size: 14px;
-        }
-        .footer {
-            margin-top: 60px;
-            padding-top: 24px;
-            border-top: 1px solid #222;
-            color: #555;
-            font-size: 13px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Time To Learn — AI audio lessons for your commute</title>
+  <meta name="description" content="You choose the time. We build the lesson. AI-powered audio lessons on any subject, ready in seconds. Free to start." />
+  <meta property="og:title" content="Time To Learn" />
+  <meta property="og:description" content="AI audio lessons timed to your commute. Learn anything. Hands-free." />
+  <meta property="og:image" content="AppIcon.png" />
+  <link rel="icon" href="AppIcon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0f0f0f;
+      --bg2:       #141414;
+      --card:      #1c1c1e;
+      --input:     #2c2c2e;
+      --border:    #2a2a2a;
+      --orange:    #FF6B00;
+      --orange2:   #FF8C00;
+      --text:      #ffffff;
+      --muted:     #888888;
+      --faint:     #444444;
+      --display:   'Syne', sans-serif;
+      --body:      'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--body); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; height: 64px;
+      background: rgba(15,15,15,0.88); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; }
+    .nav-logo img { width: 32px; height: 32px; border-radius: 8px; }
+    .nav-logo span { font-family: var(--display); font-size: 17px; font-weight: 800; letter-spacing: -0.5px; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 14px; color: var(--muted); transition: color .2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--orange); color: #fff;
+      font-family: var(--display); font-size: 13px; font-weight: 700;
+      padding: 9px 18px; border-radius: 8px;
+      transition: opacity .2s, transform .15s;
+    }
+    .nav-cta:hover { opacity: .88; transform: translateY(-1px); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all .25s; }
+    .mobile-menu {
+      display: none; position: fixed; top: 64px; left: 0; right: 0; z-index: 99;
+      background: var(--bg2); border-bottom: 1px solid var(--border);
+      padding: 1.5rem 2rem 2rem; flex-direction: column; gap: 1.25rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 16px; color: var(--muted); }
+    .mobile-menu .nav-cta { width: fit-content; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center;
+      padding: 80px 2rem 0; position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse 60% 50% at 70% 40%, rgba(255,107,0,.12) 0%, transparent 70%),
+                  radial-gradient(ellipse 40% 60% at 20% 80%, rgba(255,140,0,.06) 0%, transparent 70%);
+    }
+    .hero-inner {
+      max-width: 1100px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr 380px; gap: 5rem; align-items: center;
+    }
+    .hero-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,107,0,.12); border: 1px solid rgba(255,107,0,.25);
+      color: var(--orange); font-size: 11px; font-weight: 500; letter-spacing: 1.5px;
+      text-transform: uppercase; padding: 6px 14px; border-radius: 100px;
+      margin-bottom: 1.75rem; width: fit-content;
+    }
+    .hero-label::before { content: ''; width: 6px; height: 6px; background: var(--orange); border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:.3; } }
+    .hero h1 {
+      font-family: var(--display); font-size: clamp(3rem, 6.5vw, 6rem);
+      font-weight: 800; line-height: 1.0; letter-spacing: -3px;
+      margin-bottom: 1.75rem;
+    }
+    .hero h1 em { font-style: normal; color: var(--orange); }
+    .hero-sub { font-size: 1.15rem; color: var(--muted); max-width: 480px; margin-bottom: 2.5rem; font-weight: 300; line-height: 1.7; }
+    .hero-actions { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--orange); color: #fff;
+      font-family: var(--display); font-size: 15px; font-weight: 700;
+      padding: 15px 30px; border-radius: 12px;
+      transition: opacity .2s, transform .15s;
+      box-shadow: 0 0 40px rgba(255,107,0,.3), 0 0 80px rgba(255,107,0,.15);
+    }
+    .btn-primary:hover { opacity: .9; transform: translateY(-2px); }
+    .btn-secondary { color: var(--muted); font-size: 14px; transition: color .2s; }
+    .btn-secondary:hover { color: var(--text); }
+    .hero-tagline {
+      margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border);
+      font-size: 12px; color: var(--faint); letter-spacing: 2px; text-transform: uppercase;
+    }
+    .hero-phone {
+      position: relative; display: flex; justify-content: center;
+    }
+    .phone-frame {
+      width: 280px; border-radius: 44px;
+      border: 1.5px solid rgba(255,107,0,.2);
+      box-shadow: 0 0 60px rgba(255,107,0,.15), 0 40px 80px rgba(0,0,0,.6);
+      overflow: hidden;
+    }
+    .phone-frame img { width: 100%; display: block; }
+    .phone-glow {
+      position: absolute; inset: -40px; border-radius: 80px;
+      background: radial-gradient(ellipse at center, rgba(255,107,0,.15) 0%, transparent 70%);
+      pointer-events: none; z-index: -1;
+    }
+
+    /* ── SECTIONS ── */
+    .section { padding: 7rem 2rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label { font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; }
+    .section-title { font-family: var(--display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 1.25rem; }
+    .section-sub { font-size: 1.05rem; color: var(--muted); max-width: 520px; line-height: 1.7; font-weight: 300; }
+
+    /* ── HOW IT WORKS ── */
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin-top: 4rem; background: var(--border); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; }
+    .step { background: var(--card); padding: 2.5rem; position: relative; transition: background .2s; }
+    .step:hover { background: var(--input); }
+    .step-num { font-family: var(--display); font-size: 3.5rem; font-weight: 800; color: var(--orange); opacity: .25; line-height: 1; margin-bottom: 1.5rem; }
+    .step h3 { font-family: var(--display); font-size: 1.1rem; font-weight: 700; margin-bottom: .6rem; letter-spacing: -.3px; }
+    .step p { font-size: .9rem; color: var(--muted); line-height: 1.65; font-weight: 300; }
+    .step-icon { width: 40px; height: 40px; background: rgba(255,107,0,.1); border: 1px solid rgba(255,107,0,.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; font-size: 18px; }
+
+    /* ── VOICES ── */
+    .voices-section { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .voices-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 4rem; background: var(--border); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; }
+    .voice-card { background: var(--card); padding: 2rem; transition: background .2s; }
+    .voice-card:hover { background: var(--input); }
+    .voice-avatar { width: 48px; height: 48px; background: rgba(255,107,0,.12); border: 1px solid rgba(255,107,0,.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-family: var(--display); font-size: 1rem; font-weight: 800; color: var(--orange); }
+    .voice-name { font-family: var(--display); font-size: 1.1rem; font-weight: 700; margin-bottom: .35rem; }
+    .voice-accent { font-size: 11px; color: var(--orange); font-weight: 500; letter-spacing: 1px; text-transform: uppercase; margin-bottom: .5rem; }
+    .voice-desc { font-size: .875rem; color: var(--muted); font-weight: 300; line-height: 1.6; }
+    .voices-note { margin-top: 1.5rem; font-size: 13px; color: var(--faint); text-align: center; }
+
+    /* ── FEATURED ── */
+    .featured-band { background: rgba(255,107,0,.06); border: 1px solid rgba(255,107,0,.15); border-radius: 16px; padding: 2rem 2.5rem; margin-top: 4rem; display: flex; align-items: center; gap: 2rem; }
+    .featured-badge { background: var(--orange); color: #fff; font-family: var(--display); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 12px; border-radius: 100px; white-space: nowrap; flex-shrink: 0; }
+    .featured-band p { font-size: 1rem; color: var(--muted); font-weight: 300; line-height: 1.6; }
+    .featured-band p strong { color: var(--text); font-weight: 500; }
+
+    /* ── PRICING ── */
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 4rem; align-items: start; }
+    .price-card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; position: relative; transition: border-color .2s; }
+    .price-card:hover { border-color: #3a3a3a; }
+    .price-card.featured { border-color: rgba(255,107,0,.35); background: linear-gradient(145deg, #1c1c1e, #1a1208); }
+    .price-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--orange); color: #fff; font-family: var(--display); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 16px; border-radius: 100px; white-space: nowrap; }
+    .price-tier { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 1.25rem; }
+    .price-amount { font-family: var(--display); font-size: 3rem; font-weight: 800; letter-spacing: -2px; line-height: 1; margin-bottom: .4rem; }
+    .price-amount sup { font-size: 1.3rem; font-weight: 500; letter-spacing: 0; vertical-align: super; margin-right: 2px; }
+    .price-period { font-size: .85rem; color: var(--muted); margin-bottom: 2rem; }
+    .price-divider { height: 1px; background: var(--border); margin-bottom: 2rem; }
+    .price-features { list-style: none; display: flex; flex-direction: column; gap: .85rem; margin-bottom: 2rem; }
+    .price-features li { display: flex; align-items: flex-start; gap: 10px; font-size: .9rem; color: var(--muted); font-weight: 300; }
+    .price-features li::before { content: '✓'; color: var(--orange); font-weight: 700; font-size: .85rem; flex-shrink: 0; margin-top: 2px; }
+    .price-features li.minus::before { content: '—'; color: var(--faint); }
+    .price-cta { display: block; text-align: center; padding: 13px; border-radius: 10px; font-family: var(--display); font-size: 14px; font-weight: 700; transition: all .2s; }
+    .price-cta.outline { border: 1px solid var(--border); color: var(--muted); }
+    .price-cta.outline:hover { border-color: var(--muted); color: var(--text); }
+    .price-cta.solid { background: var(--orange); color: #fff; box-shadow: 0 0 24px rgba(255,107,0,.3); }
+    .price-cta.solid:hover { opacity: .9; }
+    .price-saving { font-size: 11px; color: var(--orange); text-align: center; margin-top: .75rem; font-weight: 500; }
+
+    /* ── CTA STRIP ── */
+    .cta-strip { background: var(--bg2); border-top: 1px solid var(--border); padding: 6rem 2rem; text-align: center; }
+    .cta-strip h2 { font-family: var(--display); font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; letter-spacing: -2px; margin-bottom: 1.25rem; }
+    .cta-strip p { font-size: 1.05rem; color: var(--muted); max-width: 460px; margin: 0 auto 2.5rem; font-weight: 300; }
+    .app-store-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: var(--text); color: var(--bg);
+      font-family: var(--display); font-weight: 700; font-size: 15px;
+      padding: 15px 28px; border-radius: 12px;
+      transition: opacity .2s, transform .15s;
+    }
+    .app-store-btn:hover { opacity: .88; transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer { border-top: 1px solid var(--border); padding: 4rem 2rem 3rem; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto auto auto; gap: 4rem; align-items: start; }
+    .footer-brand .nav-logo { margin-bottom: 1rem; }
+    .footer-brand p { font-size: .875rem; color: var(--faint); max-width: 240px; font-weight: 300; line-height: 1.65; }
+    .footer-col h4 { font-family: var(--display); font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--faint); margin-bottom: 1.25rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .75rem; }
+    .footer-col ul li a { font-size: .875rem; color: var(--muted); transition: color .2s; font-weight: 300; }
+    .footer-col ul li a:hover { color: var(--text); }
+    .footer-bottom { max-width: 1100px; margin: 3rem auto 0; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: var(--faint); flex-wrap: wrap; gap: 1rem; }
+
+    /* ── FADE IN ── */
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .fade-up.visible { opacity: 1; transform: none; }
+
+    /* ── AUDIO ── */
+    .audio-bar { position: fixed; bottom: 2rem; right: 2rem; z-index: 200; }
+    .audio-btn {
+      width: 48px; height: 48px; border-radius: 50%; background: var(--orange);
+      border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 24px rgba(255,107,0,.5), 0 4px 16px rgba(0,0,0,.4);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .audio-btn:hover { transform: scale(1.05); box-shadow: 0 0 40px rgba(255,107,0,.6), 0 4px 24px rgba(0,0,0,.5); }
+    .audio-btn svg { width: 20px; height: 20px; fill: white; }
+    .audio-tooltip { position: absolute; bottom: 56px; right: 0; background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 6px 12px; font-size: 12px; color: var(--muted); white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .2s; }
+    .audio-bar:hover .audio-tooltip { opacity: 1; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-phone { display: none; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .voices-grid { grid-template-columns: 1fr 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+      .featured-band { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    }
+    @media (max-width: 600px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .steps { grid-template-columns: 1fr; }
+      .voices-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .hero h1 { letter-spacing: -2px; }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
 
-        <div class="logo">
-            <div class="logo-icon">⏱</div>
-            <div>
-                <div class="logo-text">Time To Learn</div>
-                <div class="logo-sub">TTL</div>
-            </div>
+  <!-- AUDIO -->
+  <audio id="introAudio" src="TTLIntro.mp3" preload="auto"></audio>
+  <div class="audio-bar">
+    <div class="audio-tooltip">Play intro</div>
+    <button class="audio-btn" id="audioBtn" aria-label="Play TTL intro">
+      <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      <svg id="pauseIcon" viewBox="0 0 24 24" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+    </button>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-logo">
+      <img src="AppIcon.png" alt="TTL" />
+      <span>Time To Learn</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#how-it-works">How it works</a></li>
+      <li><a href="#voices">Voices</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+    </ul>
+    <a href="https://apps.apple.com/app/id6766273932" class="nav-cta" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      Download free
+    </a>
+    <button class="hamburger" aria-label="Menu" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#how-it-works">How it works</a>
+    <a href="#voices">Voices</a>
+    <a href="#pricing">Pricing</a>
+    <a href="https://apps.apple.com/app/id6766273932" class="nav-cta" target="_blank" rel="noopener">Download free</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-label">Now on the App Store</div>
+        <h1>
+          You choose<br />
+          the time.<br />
+          <em>We build<br />the lesson.</em>
+        </h1>
+        <p class="hero-sub">
+          AI-generated audio lessons on any subject, timed perfectly to your commute. No prep. No screen. Just knowledge.
+        </p>
+        <div class="hero-actions">
+          <a href="https://apps.apple.com/app/id6766273932" class="btn-primary" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            Download for iOS — Free
+          </a>
+          <a href="#how-it-works" class="btn-secondary">See how it works →</a>
         </div>
-
-        <h1>Privacy Policy</h1>
-        <p class="subtitle">Last updated: May 2026</p>
-
-        <div class="highlight">
-            The short version: TTL does not collect, sell, or share your personal data. Your lessons are yours. We don't read them. Nobody does.
+        <p class="hero-tagline">Free to start · No credit card · Ready in seconds</p>
+      </div>
+      <div class="hero-phone">
+        <div class="phone-glow"></div>
+        <div class="phone-frame">
+          <img src="splash.png" alt="Time To Learn app" />
         </div>
-
-        <h2>Who we are</h2>
-        <p>Time To Learn ("TTL", "we", "us") is developed and operated by Jamie Anthony Bright, based in the United Kingdom. TTL is an iOS application that generates AI-powered audio lessons on subjects of your choosing, timed to fit your available time.</p>
-
-        <h2>What data we collect</h2>
-        <p>TTL collects the minimum data necessary to operate the app:</p>
-        <ul>
-            <li><strong>Lesson content</strong> — the subjects you choose and the lessons generated for you. These are stored in your private iCloud account and are only accessible by you.</li>
-            <li><strong>Usage data</strong> — how many minutes of lessons you have generated today. This is stored locally on your device and resets daily.</li>
-            <li><strong>Subscription status</strong> — whether you hold an active monthly or annual subscription. This is managed by Apple via StoreKit and we do not store payment information of any kind.</li>
-            <li><strong>Anonymous lesson metadata</strong> — when you generate a lesson, an anonymised copy (subject, duration, narrator, tags) is saved to a shared database for the purpose of content curation and app improvement. This contains no personal identifiers.</li>
-        </ul>
-
-        <h2>What data we do NOT collect</h2>
-        <ul>
-            <li>Your name, email address, or Apple ID</li>
-            <li>Your location or journey details</li>
-            <li>Device identifiers or advertising IDs beyond what Apple's AdMob integration requires</li>
-            <li>Browsing history or behaviour outside of TTL</li>
-            <li>Any biometric or health data</li>
-        </ul>
-
-        <h2>iCloud and Apple services</h2>
-        <p>Your saved lessons and audio files are stored in your personal iCloud account using Apple CloudKit. This data is private — only you can access it. TTL cannot read, access, or retrieve your private iCloud data. Apple's privacy policy governs how iCloud data is handled: <a href="https://www.apple.com/legal/privacy/" target="_blank">apple.com/legal/privacy</a>.</p>
-
-        <h2>Third-party services</h2>
-        <p>TTL uses the following third-party services to operate:</p>
-        <ul>
-            <li><strong>AI content generation</strong> — lesson scripts are generated using third-party AI services. Your subject input is sent to these services to produce the lesson text. No personal data beyond your subject query is transmitted.</li>
-            <li><strong>AI voice narration</strong> — lesson scripts are converted to audio using third-party AI voice services. The lesson text is sent to produce the audio file. No personal data is transmitted.</li>
-            <li><strong>Unsplash</strong> — provides cover photos for lessons based on the subject you choose. A search query is sent to Unsplash. Unsplash's privacy policy applies: <a href="https://unsplash.com/privacy" target="_blank">unsplash.com/privacy</a>.</li>
-            <li><strong>Google AdMob</strong> — displays banner advertisements to free users. AdMob may use device identifiers in accordance with Google's privacy policy: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a>. Paid subscribers do not see ads.</li>
-        </ul>
-
-        <h2>GDPR — your rights</h2>
-        <p>If you are based in the United Kingdom or European Economic Area, you have the following rights under GDPR:</p>
-        <ul>
-            <li><strong>Right to access</strong> — you can request a copy of any personal data we hold about you.</li>
-            <li><strong>Right to erasure</strong> — you can request deletion of your data at any time. Deleting the app and your iCloud data removes all TTL data associated with you.</li>
-            <li><strong>Right to rectification</strong> — you can request correction of any inaccurate data.</li>
-            <li><strong>Right to object</strong> — you can object to processing of your data at any time.</li>
-            <li><strong>Right to data portability</strong> — you can request your data in a portable format.</li>
-        </ul>
-        <p>To exercise any of these rights, contact us at <a href="mailto:jamieasbright@gmail.com">jamieasbright@gmail.com</a>. We will respond within 30 days.</p>
-
-        <h2>Data retention</h2>
-        <p>Your private lesson data in iCloud is retained until you delete it. Anonymised lesson metadata in our shared database is retained indefinitely for content curation purposes and contains no personal identifiers. Local usage data resets daily.</p>
-
-        <h2>Children's privacy</h2>
-        <p>TTL is not directed at children under the age of 13. We do not knowingly collect personal data from children. If you believe a child has provided us with personal information, please contact us and we will delete it promptly.</p>
-
-        <h2>Changes to this policy</h2>
-        <p>We may update this Privacy Policy from time to time. We will notify you of significant changes via the App Store update notes or within the app. Continued use of TTL after changes constitutes acceptance of the updated policy.</p>
-
-        <h2>Contact</h2>
-        <p>Questions, concerns, or requests regarding this Privacy Policy should be directed to:</p>
-        <p><strong>Jamie Anthony Bright</strong><br>
-        <a href="mailto:jamieasbright@gmail.com">jamieasbright@gmail.com</a></p>
-
-        <div class="footer">
-            © 2026 Jamie Anthony Bright. Time To Learn. All rights reserved.<br>
-            <a href="https://jalaskan.github.io/ttl-privacy/terms-of-service.html">Terms of Service</a>
-        </div>
-
+      </div>
     </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how-it-works">
+    <div class="section-inner">
+      <div class="section-label fade-up">How it works</div>
+      <h2 class="section-title fade-up">A lesson ready before<br />you reach the platform.</h2>
+      <p class="section-sub fade-up">Four steps. No faff. Your lesson is ready by the time you find a seat.</p>
+
+      <div class="steps fade-up">
+        <div class="step">
+          <div class="step-icon">⏱️</div>
+          <div class="step-num">01</div>
+          <h3>Pick your time</h3>
+          <p>Got 5 minutes? 10? 15? Tell us how long you have and we'll fit the lesson precisely — not a second wasted.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">📖</div>
+          <div class="step-num">02</div>
+          <h3>Choose a subject</h3>
+          <p>Type anything. The Roman Empire. Quantum physics. The history of coffee. If it exists, TTL can teach it.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">🎓</div>
+          <div class="step-num">03</div>
+          <h3>Set your depth</h3>
+          <p>Quick introduction or a full masterclass? Four levels let you decide how deep you want to go — and we match it to your time automatically.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">🎧</div>
+          <div class="step-num">04</div>
+          <h3>Hit play</h3>
+          <p>Phone in pocket. Headphones on. A fresh audio lesson generated just for you, every single time.</p>
+        </div>
+      </div>
+
+      <div class="featured-band fade-up">
+        <div class="featured-badge">Free</div>
+        <p><strong>Featured lessons are free.</strong> Not sure yet? Browse our curated library of handpicked lessons — no subscription, no card required. Just download and listen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOICES -->
+  <section class="section voices-section" id="voices">
+    <div class="section-inner">
+      <div class="section-label fade-up">The voices</div>
+      <h2 class="section-title fade-up">Six narrators.<br />Every mood.</h2>
+      <p class="section-sub fade-up">Pick the voice that fits your topic and your commute. From documentary gravitas to podcast warmth — there's one for every lesson.</p>
+
+      <div class="voices-grid fade-up">
+        <div class="voice-card">
+          <div class="voice-avatar">G</div>
+          <div class="voice-name">Gavin</div>
+          <div class="voice-accent">British</div>
+          <div class="voice-desc">Clean and confident. Your classic documentary presenter. Makes even mundane topics feel important.</div>
+        </div>
+        <div class="voice-card">
+          <div class="voice-avatar">J</div>
+          <div class="voice-name">James</div>
+          <div class="voice-accent">British · Default</div>
+          <div class="voice-desc">Relaxed and conversational. Feels like a really good podcast. The most natural listen in the library.</div>
+        </div>
+        <div class="voice-card">
+          <div class="voice-avatar">N</div>
+          <div class="voice-name">Nicole</div>
+          <div class="voice-accent">American</div>
+          <div class="voice-desc">Warm and clear. Like your smartest friend explaining something over coffee. Instantly engaging.</div>
+        </div>
+        <div class="voice-card">
+          <div class="voice-avatar">C</div>
+          <div class="voice-name">Charlie</div>
+          <div class="voice-accent">British</div>
+          <div class="voice-desc">Deep and authoritative. Commands attention on any topic. Built for serious subjects.</div>
+        </div>
+        <div class="voice-card">
+          <div class="voice-avatar">Ca</div>
+          <div class="voice-name">Caroline</div>
+          <div class="voice-accent">British</div>
+          <div class="voice-desc">Crisp and precise. Clear as a bell on every word. Perfect when you want maximum clarity.</div>
+        </div>
+        <div class="voice-card">
+          <div class="voice-avatar">W</div>
+          <div class="voice-name">Winifred</div>
+          <div class="voice-accent">British</div>
+          <div class="voice-desc">Distinctive and expressive. Instantly memorable. The one you'll keep coming back to.</div>
+        </div>
+      </div>
+      <p class="voices-note fade-up">All voices available to monthly and annual subscribers. Free users enjoy featured lessons in their original voice.</p>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section" id="pricing">
+    <div class="section-inner">
+      <div class="section-label fade-up">Pricing</div>
+      <h2 class="section-title fade-up">Simple. No nonsense.</h2>
+      <p class="section-sub fade-up">Start free with our featured lesson library. Upgrade when you're ready to generate your own.</p>
+
+      <div class="pricing-grid fade-up">
+
+        <!-- Free -->
+        <div class="price-card">
+          <div class="price-tier">Free</div>
+          <div class="price-amount">£0</div>
+          <div class="price-period">forever</div>
+          <div class="price-divider"></div>
+          <ul class="price-features">
+            <li>Full access to featured lessons</li>
+            <li>Curated topics, ready to play</li>
+            <li>No credit card needed</li>
+            <li class="minus">Generate your own lessons</li>
+            <li class="minus">Choose your narrator voice</li>
+            <li class="minus">Save lessons to library</li>
+          </ul>
+          <a href="https://apps.apple.com/app/id6766273932" class="price-cta outline" target="_blank" rel="noopener">Download free</a>
+        </div>
+
+        <!-- Monthly -->
+        <div class="price-card featured">
+          <div class="price-badge">Most popular</div>
+          <div class="price-tier">Monthly</div>
+          <div class="price-amount"><sup>£</sup>9.99</div>
+          <div class="price-period">per month · cancel anytime</div>
+          <div class="price-divider"></div>
+          <ul class="price-features">
+            <li>Generate unlimited lessons</li>
+            <li>Any subject, any time</li>
+            <li>All 6 narrator voices</li>
+            <li>4 depth levels</li>
+            <li>No ads</li>
+            <li class="minus">Save lessons to library</li>
+          </ul>
+          <a href="https://apps.apple.com/app/id6766273932" class="price-cta solid" target="_blank" rel="noopener">Start learning</a>
+        </div>
+
+        <!-- Annual -->
+        <div class="price-card">
+          <div class="price-tier">Annual</div>
+          <div class="price-amount"><sup>£</sup>99.99</div>
+          <div class="price-period">per year</div>
+          <div class="price-divider"></div>
+          <ul class="price-features">
+            <li>Everything in Monthly</li>
+            <li>Save lessons to your library</li>
+            <li>Build your personal collection</li>
+            <li>Replay anytime, offline</li>
+            <li>No ads</li>
+            <li>Best value</li>
+          </ul>
+          <a href="https://apps.apple.com/app/id6766273932" class="price-cta outline" target="_blank" rel="noopener">Get annual</a>
+          <p class="price-saving">Save ~17% vs monthly</p>
+        </div>
+      </div>
+
+      <p style="text-align:center; margin-top: 2rem; font-size: 13px; color: var(--faint);">
+        All subscriptions managed by Apple. Cancel anytime in your iPhone Settings.
+        <br />15-minute daily generation limit applies to paid plans.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <div class="cta-strip">
+    <h2 class="fade-up">Your commute.<br />Your classroom.</h2>
+    <p class="fade-up">Free to start. No credit card. A fresh lesson in seconds.</p>
+    <a href="https://apps.apple.com/app/id6766273932" class="app-store-btn fade-up" target="_blank" rel="noopener">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      Download on the App Store
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-logo" style="margin-bottom:1rem;">
+          <img src="AppIcon.png" alt="TTL" style="width:32px;height:32px;border-radius:8px;" />
+          <span style="font-family:var(--display);font-size:17px;font-weight:800;letter-spacing:-.5px;">Time To Learn</span>
+        </div>
+        <p>AI audio lessons timed to your commute. Learn anything. Hands-free. Free to start.</p>
+      </div>
+      <div class="footer-col">
+        <h4>App</h4>
+        <ul>
+          <li><a href="#how-it-works">How it works</a></li>
+          <li><a href="#voices">Voices</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="https://apps.apple.com/app/id6766273932" target="_blank" rel="noopener">Download</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="mailto:jamieasbright@gmail.com">Contact us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Time To Learn. All rights reserved.</span>
+      <span style="color:var(--faint);">Available on iOS</span>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+    // Fade up on scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Audio player
+    const audio = document.getElementById('introAudio');
+    const btn = document.getElementById('audioBtn');
+    const playIcon = document.getElementById('playIcon');
+    const pauseIcon = document.getElementById('pauseIcon');
+    let playing = false;
+    btn.addEventListener('click', () => {
+      if (playing) {
+        audio.pause();
+        playIcon.style.display = 'block';
+        pauseIcon.style.display = 'none';
+      } else {
+        audio.play();
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = 'block';
+      }
+      playing = !playing;
+    });
+    audio.addEventListener('ended', () => {
+      playing = false;
+      playIcon.style.display = 'block';
+      pauseIcon.style.display = 'none';
+    });
+
+    // Smooth scroll anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      });
+    });
+  </script>
 </body>
 </html>

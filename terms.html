@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — Time To Learn</title>
+  <link rel="icon" href="AppIcon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0f0f0f; --bg2: #141414; --card: #1c1c1e; --input: #2c2c2e;
+      --border: #2a2a2a; --orange: #FF6B00; --text: #ffffff;
+      --muted: #888888; --faint: #444444;
+      --display: 'Syne', sans-serif; --body: 'DM Sans', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--body); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    a { color: var(--orange); text-decoration: underline; text-underline-offset: 3px; }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; height: 64px;
+      background: rgba(15,15,15,.88); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
+    .nav-logo img { width: 32px; height: 32px; border-radius: 8px; }
+    .nav-logo span { font-family: var(--display); font-size: 17px; font-weight: 800; letter-spacing: -.5px; }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--orange); color: #fff; text-decoration: none;
+      font-family: var(--display); font-size: 13px; font-weight: 700;
+      padding: 9px 18px; border-radius: 8px; transition: opacity .2s;
+    }
+    .nav-cta:hover { opacity: .88; }
+    .legal-wrap { max-width: 720px; margin: 0 auto; padding: 120px 2rem 6rem; }
+    .legal-tag { font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; }
+    .legal-wrap h1 { font-family: var(--display); font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -1.5px; line-height: 1.05; margin-bottom: .5rem; }
+    .legal-meta { font-size: 13px; color: var(--faint); margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid var(--border); }
+    .callout { background: rgba(255,107,0,.08); border: 1px solid rgba(255,107,0,.2); border-radius: 12px; padding: 1.25rem 1.5rem; margin: 2rem 0; font-size: .925rem; color: var(--muted); font-weight: 300; line-height: 1.7; }
+    .callout strong { color: var(--orange); font-weight: 500; }
+    h2 { font-family: var(--display); font-size: 1.1rem; font-weight: 700; letter-spacing: -.3px; color: var(--text); margin: 3rem 0 .75rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    h2:first-of-type { border-top: none; padding-top: 0; margin-top: 1rem; }
+    p { font-size: .95rem; color: var(--muted); line-height: 1.8; font-weight: 300; margin-bottom: 1rem; }
+    ul { list-style: none; margin: 1rem 0 1.5rem; display: flex; flex-direction: column; gap: .6rem; }
+    ul li { font-size: .95rem; color: var(--muted); font-weight: 300; line-height: 1.7; padding-left: 1.25rem; position: relative; }
+    ul li::before { content: '—'; position: absolute; left: 0; color: var(--orange); font-size: .85rem; }
+    strong { color: var(--text); font-weight: 500; }
+    .tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; margin: 1.5rem 0; }
+    .tier-card { background: var(--card); padding: 1.25rem; }
+    .tier-name { font-family: var(--display); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--faint); margin-bottom: .5rem; }
+    .tier-price { font-family: var(--display); font-size: 1.5rem; font-weight: 800; letter-spacing: -1px; color: var(--text); margin-bottom: .75rem; }
+    .tier-card ul { margin: 0; gap: .4rem; }
+    .tier-card ul li { font-size: .825rem; padding-left: 1rem; }
+    footer { border-top: 1px solid var(--border); padding: 2rem; display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: var(--faint); flex-wrap: wrap; gap: 1rem; }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+    @media (max-width: 600px) { .tier-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="AppIcon.png" alt="TTL" />
+      <span>Time To Learn</span>
+    </a>
+    <a href="https://apps.apple.com/app/id6766273932" class="nav-cta" target="_blank" rel="noopener">Download free</a>
+  </nav>
+
+  <div class="legal-wrap">
+    <div class="legal-tag">Legal</div>
+    <h1>Terms of Service</h1>
+    <p class="legal-meta">Last updated: June 2026 &nbsp;·&nbsp; Effective immediately</p>
+
+    <div class="callout">
+      <strong>Plain English summary:</strong> Use the app fairly, pay for what you use, don't try to break things. Lessons are AI-generated for learning purposes — not professional advice. Governed by English law.
+    </div>
+
+    <h2>1. About these terms</h2>
+    <p>These Terms of Service ("Terms") govern your use of the Time To Learn iOS application ("App" or "TTL"). By downloading or using the App, you agree to these Terms. If you do not agree, do not use the App.</p>
+    <p>These Terms should be read alongside our <a href="privacy.html">Privacy Policy</a>, which forms part of this agreement.</p>
+
+    <h2>2. The service</h2>
+    <p>Time To Learn is an iOS application that generates AI-powered audio lessons on subjects of your choosing, timed to fit your available time. Lessons are generated on demand using AI services via a secure proxy. The App also provides a curated library of featured lessons available to all users, including those on the free plan.</p>
+
+    <h2>3. Subscription plans</h2>
+    <p>TTL offers three tiers, managed and billed by Apple through the App Store:</p>
+    <div class="tier-grid">
+      <div class="tier-card">
+        <div class="tier-name">Free</div>
+        <div class="tier-price">£0</div>
+        <ul>
+          <li>Featured lessons only</li>
+          <li>Banner advertising</li>
+          <li>No lesson generation</li>
+        </ul>
+      </div>
+      <div class="tier-card">
+        <div class="tier-name">Monthly</div>
+        <div class="tier-price">£9.99<span style="font-size:.75rem;font-weight:400;letter-spacing:0;">/mo</span></div>
+        <ul>
+          <li>Unlimited generation</li>
+          <li>All 6 narrator voices</li>
+          <li>No advertising</li>
+          <li>15 min daily limit</li>
+        </ul>
+      </div>
+      <div class="tier-card">
+        <div class="tier-name">Annual</div>
+        <div class="tier-price">£99.99<span style="font-size:.75rem;font-weight:400;letter-spacing:0;">/yr</span></div>
+        <ul>
+          <li>Everything in Monthly</li>
+          <li>Save lessons to library</li>
+          <li>Replay anytime</li>
+          <li>15 min daily limit</li>
+        </ul>
+      </div>
+    </div>
+    <p>Subscriptions auto-renew unless cancelled at least 24 hours before the renewal date. To manage or cancel, go to iPhone Settings → Apple ID → Subscriptions. All billing is handled by Apple. Refunds are subject to Apple's standard refund policy — we cannot issue refunds directly.</p>
+
+    <h2>4. Daily generation limit</h2>
+    <p>Paid subscribers are subject to a 15-minute daily lesson generation limit, which resets at midnight local time. This limit applies to generated lesson duration — you can replay lessons as many times as you like. Attempting to circumvent the daily limit (for example, by manipulating the device clock) is a breach of these Terms and may result in suspension.</p>
+
+    <h2>5. Acceptable use</h2>
+    <p>You agree not to:</p>
+    <ul>
+      <li>Use the App to generate harmful, abusive, threatening, defamatory, or illegal content</li>
+      <li>Attempt to reverse-engineer, decompile, or extract source code from the App</li>
+      <li>Use automated tools to scrape, abuse, or overload our infrastructure</li>
+      <li>Share, resell, or redistribute AI-generated lesson content for commercial purposes</li>
+      <li>Attempt to circumvent subscription checks, daily limits, or other technical measures</li>
+      <li>Use the App in any way that could damage, disable, or impair our services</li>
+    </ul>
+    <p>We reserve the right to suspend or terminate access to users who breach these provisions.</p>
+
+    <h2>6. AI-generated content</h2>
+    <p>All lesson content is generated by artificial intelligence and may contain inaccuracies, errors, or outdated information. TTL lessons are designed for general learning and entertainment purposes only.</p>
+    <p><strong>Lessons are not a substitute for professional advice.</strong> Nothing in a TTL lesson constitutes medical, legal, financial, psychological, or any other form of professional advice. Always consult a qualified professional for decisions that affect your health, finances, legal situation, or wellbeing.</p>
+    <p>We make no warranty that lesson content is accurate, complete, current, or suitable for any particular purpose.</p>
+
+    <h2>7. Narrator voices</h2>
+    <p>TTL offers six AI narrator voices: Gavin, James, Nicole, Charlie, Caroline, and Winifred. All voices are available to monthly and annual subscribers. Free users hear whichever voice featured lessons were recorded in. Voice availability is subject to change.</p>
+
+    <h2>8. Depth levels</h2>
+    <p>TTL offers four lesson depth levels — Introduction, Foundation, Analysis, and Masterclass — which control the treatment and complexity of AI-generated content. Depth levels are automatically matched to your chosen duration and can be overridden manually. We make no guarantee that a particular depth level will be appropriate for all subjects or users.</p>
+
+    <h2>9. Intellectual property</h2>
+    <p>The App, its design, branding, and code are protected by copyright and other intellectual property laws. You may not copy, modify, or create derivative works from any part of the App without express written permission. AI-generated lesson content is generated on your behalf for personal, non-commercial use only.</p>
+
+    <h2>10. Third-party services</h2>
+    <p>The App relies on third-party services for AI generation, audio narration, analytics, advertising, photography, and subscription management. We are not responsible for the availability or conduct of these services. Disruption to third-party services may affect App functionality without notice.</p>
+
+    <h2>11. Service availability</h2>
+    <p>We aim to provide a reliable service but do not guarantee uninterrupted availability. We reserve the right to modify, suspend, or discontinue any part of the App at any time. In the event of permanent discontinuation, we will provide reasonable advance notice.</p>
+
+    <h2>12. Limitation of liability</h2>
+    <p>To the maximum extent permitted by law, we shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of or inability to use the App. Our total aggregate liability for any claim shall not exceed the amount you paid in the 12 months preceding the claim. Nothing in these Terms limits liability for death or personal injury caused by negligence, fraud, or any other liability that cannot be excluded by law.</p>
+
+    <h2>13. Consumer rights</h2>
+    <p>If you are a consumer in the United Kingdom or European Union, you may have statutory rights that cannot be excluded or limited by these Terms. Nothing in these Terms affects your statutory rights.</p>
+
+    <h2>14. Governing law</h2>
+    <p>These Terms are governed by the laws of England and Wales. Any disputes shall be subject to the exclusive jurisdiction of the courts of England and Wales, except where applicable consumer protection law provides otherwise.</p>
+
+    <h2>15. Changes to these terms</h2>
+    <p>We may update these Terms from time to time. We will update the date above when we do. Continued use of the App after changes are posted constitutes acceptance of the revised Terms.</p>
+
+    <h2>16. Contact</h2>
+    <p>Questions about these Terms: <a href="mailto:jamieasbright@gmail.com">click here to email us</a>. We aim to respond within 5 working days.</p>
+  </div>
+
+  <footer>
+    <span>© 2026 Time To Learn. All rights reserved.</span>
+    <span>
+      <a href="index.html">Home</a> &nbsp;·&nbsp;
+      <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
+      <a href="terms.html">Terms of Service</a>
+    </span>
+  </footer>
+</body>
+</html>
