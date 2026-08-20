@@ -16,16 +16,19 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:        #0f0f0f;
-      --bg2:       #141414;
-      --card:      #1c1c1e;
-      --input:     #2c2c2e;
-      --border:    #2a2a2a;
-      --orange:    #FF6B00;
-      --orange2:   #FF8C00;
-      --text:      #ffffff;
-      --muted:     #888888;
-      --faint:     #444444;
+      /* ── Mint & blue palette — matches the app's dark mode:
+         navy-led surfaces, mint accent. ── */
+      --bg:        #060C14;
+      --bg2:       #142333;
+      --card:      #223852;
+      --input:     #03070C;
+      --border:    #486B84;
+      --orange:    #4FD8AB;   /* primary accent (mint) — kept the variable name so nothing else needs renaming */
+      --orange2:   #6EE8C4;   /* lighter accent variant */
+      --on-accent: #06131A;   /* dark navy — used for text/icons sitting on a solid mint fill, since mint is too light for white-on-top to read well */
+      --text:      #EAFAF3;
+      --muted:     #8FB8AC;
+      --faint:     #273C4C;
       --display:   'Syne', sans-serif;
       --body:      'DM Sans', sans-serif;
     }
@@ -40,7 +43,7 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 2rem; height: 64px;
-      background: rgba(15,15,15,0.88); backdrop-filter: blur(20px);
+      background: rgba(6,12,20,0.88); backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
     }
     .nav-logo { display: flex; align-items: center; gap: 10px; }
@@ -51,7 +54,7 @@
     .nav-links a:hover { color: var(--text); }
     .nav-cta {
       display: inline-flex; align-items: center; gap: 8px;
-      background: var(--orange); color: #fff;
+      background: var(--orange); color: var(--on-accent);
       font-family: var(--display); font-size: 13px; font-weight: 700;
       padding: 9px 18px; border-radius: 8px;
       transition: opacity .2s, transform .15s;
@@ -75,8 +78,8 @@
     }
     .hero-bg {
       position: absolute; inset: 0; pointer-events: none;
-      background: radial-gradient(ellipse 60% 50% at 70% 40%, rgba(255,107,0,.12) 0%, transparent 70%),
-                  radial-gradient(ellipse 40% 60% at 20% 80%, rgba(255,140,0,.06) 0%, transparent 70%);
+      background: radial-gradient(ellipse 60% 50% at 70% 40%, rgba(79,216,171,.12) 0%, transparent 70%),
+                  radial-gradient(ellipse 40% 60% at 20% 80%, rgba(110,232,196,.06) 0%, transparent 70%);
     }
     .hero-inner {
       max-width: 1100px; margin: 0 auto; width: 100%;
@@ -84,7 +87,7 @@
     }
     .hero-label {
       display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(255,107,0,.12); border: 1px solid rgba(255,107,0,.25);
+      background: rgba(79,216,171,.12); border: 1px solid rgba(79,216,171,.25);
       color: var(--orange); font-size: 11px; font-weight: 500; letter-spacing: 1.5px;
       text-transform: uppercase; padding: 6px 14px; border-radius: 100px;
       margin-bottom: 1.75rem; width: fit-content;
@@ -101,11 +104,11 @@
     .hero-actions { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
     .btn-primary {
       display: inline-flex; align-items: center; gap: 10px;
-      background: var(--orange); color: #fff;
+      background: var(--orange); color: var(--on-accent);
       font-family: var(--display); font-size: 15px; font-weight: 700;
       padding: 15px 30px; border-radius: 12px;
       transition: opacity .2s, transform .15s;
-      box-shadow: 0 0 40px rgba(255,107,0,.3), 0 0 80px rgba(255,107,0,.15);
+      box-shadow: 0 0 40px rgba(79,216,171,.3), 0 0 80px rgba(79,216,171,.15);
     }
     .btn-primary:hover { opacity: .9; transform: translateY(-2px); }
     .btn-secondary { color: var(--muted); font-size: 14px; transition: color .2s; }
@@ -119,14 +122,14 @@
     }
     .phone-frame {
       width: 280px; border-radius: 44px;
-      border: 1.5px solid rgba(255,107,0,.2);
-      box-shadow: 0 0 60px rgba(255,107,0,.15), 0 40px 80px rgba(0,0,0,.6);
+      border: 1.5px solid rgba(79,216,171,.2);
+      box-shadow: 0 0 60px rgba(79,216,171,.15), 0 40px 80px rgba(0,0,0,.6);
       overflow: hidden;
     }
     .phone-frame img { width: 100%; display: block; }
     .phone-glow {
       position: absolute; inset: -40px; border-radius: 80px;
-      background: radial-gradient(ellipse at center, rgba(255,107,0,.15) 0%, transparent 70%);
+      background: radial-gradient(ellipse at center, rgba(79,216,171,.15) 0%, transparent 70%);
       pointer-events: none; z-index: -1;
     }
 
@@ -140,35 +143,35 @@
     /* ── HOW IT WORKS ── */
     .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin-top: 4rem; background: var(--border); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; }
     .step { background: var(--card); padding: 2.5rem; position: relative; transition: background .2s; }
-    .step:hover { background: var(--input); }
+    .step:hover { background: var(--bg2); }
     .step-num { font-family: var(--display); font-size: 3.5rem; font-weight: 800; color: var(--orange); opacity: .25; line-height: 1; margin-bottom: 1.5rem; }
     .step h3 { font-family: var(--display); font-size: 1.1rem; font-weight: 700; margin-bottom: .6rem; letter-spacing: -.3px; }
     .step p { font-size: .9rem; color: var(--muted); line-height: 1.65; font-weight: 300; }
-    .step-icon { width: 40px; height: 40px; background: rgba(255,107,0,.1); border: 1px solid rgba(255,107,0,.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; font-size: 18px; }
+    .step-icon { width: 40px; height: 40px; background: rgba(79,216,171,.1); border: 1px solid rgba(79,216,171,.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; font-size: 18px; }
 
     /* ── VOICES ── */
     .voices-section { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .voices-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 4rem; background: var(--border); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; }
     .voice-card { background: var(--card); padding: 2rem; transition: background .2s; }
-    .voice-card:hover { background: var(--input); }
-    .voice-avatar { width: 48px; height: 48px; background: rgba(255,107,0,.12); border: 1px solid rgba(255,107,0,.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-family: var(--display); font-size: 1rem; font-weight: 800; color: var(--orange); }
+    .voice-card:hover { background: var(--bg2); }
+    .voice-avatar { width: 48px; height: 48px; background: rgba(79,216,171,.12); border: 1px solid rgba(79,216,171,.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-family: var(--display); font-size: 1rem; font-weight: 800; color: var(--orange); }
     .voice-name { font-family: var(--display); font-size: 1.1rem; font-weight: 700; margin-bottom: .35rem; }
     .voice-accent { font-size: 11px; color: var(--orange); font-weight: 500; letter-spacing: 1px; text-transform: uppercase; margin-bottom: .5rem; }
     .voice-desc { font-size: .875rem; color: var(--muted); font-weight: 300; line-height: 1.6; }
     .voices-note { margin-top: 1.5rem; font-size: 13px; color: var(--faint); text-align: center; }
 
     /* ── FEATURED ── */
-    .featured-band { background: rgba(255,107,0,.06); border: 1px solid rgba(255,107,0,.15); border-radius: 16px; padding: 2rem 2.5rem; margin-top: 4rem; display: flex; align-items: center; gap: 2rem; }
-    .featured-badge { background: var(--orange); color: #fff; font-family: var(--display); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 12px; border-radius: 100px; white-space: nowrap; flex-shrink: 0; }
+    .featured-band { background: rgba(79,216,171,.06); border: 1px solid rgba(79,216,171,.15); border-radius: 16px; padding: 2rem 2.5rem; margin-top: 4rem; display: flex; align-items: center; gap: 2rem; }
+    .featured-badge { background: var(--orange); color: var(--on-accent); font-family: var(--display); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 12px; border-radius: 100px; white-space: nowrap; flex-shrink: 0; }
     .featured-band p { font-size: 1rem; color: var(--muted); font-weight: 300; line-height: 1.6; }
     .featured-band p strong { color: var(--text); font-weight: 500; }
 
     /* ── PRICING ── */
     .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 4rem; align-items: start; }
     .price-card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; position: relative; transition: border-color .2s; }
-    .price-card:hover { border-color: #3a3a3a; }
-    .price-card.featured { border-color: rgba(255,107,0,.35); background: linear-gradient(145deg, #1c1c1e, #1a1208); }
-    .price-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--orange); color: #fff; font-family: var(--display); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 16px; border-radius: 100px; white-space: nowrap; }
+    .price-card:hover { border-color: #5C87A3; }
+    .price-card.featured { border-color: rgba(79,216,171,.35); background: linear-gradient(145deg, #223852, #0F2A22); }
+    .price-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--orange); color: var(--on-accent); font-family: var(--display); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 16px; border-radius: 100px; white-space: nowrap; }
     .price-tier { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 1.25rem; }
     .price-amount { font-family: var(--display); font-size: 3rem; font-weight: 800; letter-spacing: -2px; line-height: 1; margin-bottom: .4rem; }
     .price-amount sup { font-size: 1.3rem; font-weight: 500; letter-spacing: 0; vertical-align: super; margin-right: 2px; }
@@ -181,7 +184,7 @@
     .price-cta { display: block; text-align: center; padding: 13px; border-radius: 10px; font-family: var(--display); font-size: 14px; font-weight: 700; transition: all .2s; }
     .price-cta.outline { border: 1px solid var(--border); color: var(--muted); }
     .price-cta.outline:hover { border-color: var(--muted); color: var(--text); }
-    .price-cta.solid { background: var(--orange); color: #fff; box-shadow: 0 0 24px rgba(255,107,0,.3); }
+    .price-cta.solid { background: var(--orange); color: var(--on-accent); box-shadow: 0 0 24px rgba(79,216,171,.3); }
     .price-cta.solid:hover { opacity: .9; }
     .price-saving { font-size: 11px; color: var(--orange); text-align: center; margin-top: .75rem; font-weight: 500; }
 
@@ -218,11 +221,11 @@
     .audio-btn {
       width: 48px; height: 48px; border-radius: 50%; background: var(--orange);
       border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 0 24px rgba(255,107,0,.5), 0 4px 16px rgba(0,0,0,.4);
+      box-shadow: 0 0 24px rgba(79,216,171,.5), 0 4px 16px rgba(0,0,0,.4);
       transition: transform .2s, box-shadow .2s;
     }
-    .audio-btn:hover { transform: scale(1.05); box-shadow: 0 0 40px rgba(255,107,0,.6), 0 4px 24px rgba(0,0,0,.5); }
-    .audio-btn svg { width: 20px; height: 20px; fill: white; }
+    .audio-btn:hover { transform: scale(1.05); box-shadow: 0 0 40px rgba(79,216,171,.6), 0 4px 24px rgba(0,0,0,.5); }
+    .audio-btn svg { width: 20px; height: 20px; fill: var(--on-accent); }
     .audio-tooltip { position: absolute; bottom: 56px; right: 0; background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 6px 12px; font-size: 12px; color: var(--muted); white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .2s; }
     .audio-bar:hover .audio-tooltip { opacity: 1; }
 
