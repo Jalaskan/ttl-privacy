@@ -11,9 +11,19 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #0f0f0f; --bg2: #141414; --card: #1c1c1e; --input: #2c2c2e;
-      --border: #2a2a2a; --orange: #FF6B00; --text: #ffffff;
-      --muted: #888888; --faint: #444444;
+      /* ── Mint & navy palette — matches the app's dark mode and
+         the rest of the site. ── */
+      --bg:        #060C14;
+      --bg2:       #142333;
+      --card:      #223852;
+      --input:     #03070C;
+      --border:    #486B84;
+      --orange:    #4FD8AB;   /* primary accent (mint) */
+      --orange2:   #6EE8C4;
+      --on-accent: #06131A;
+      --text:      #EAFAF3;
+      --muted:     #8FB8AC;
+      --faint:     #273C4C;
       --display: 'Syne', sans-serif; --body: 'DM Sans', sans-serif;
     }
     html { scroll-behavior: smooth; }
@@ -23,7 +33,7 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 2rem; height: 64px;
-      background: rgba(15,15,15,.88); backdrop-filter: blur(20px);
+      background: rgba(6,12,20,.88); backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
     }
     .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
@@ -31,7 +41,7 @@
     .nav-logo span { font-family: var(--display); font-size: 17px; font-weight: 800; letter-spacing: -.5px; }
     .nav-cta {
       display: inline-flex; align-items: center; gap: 8px;
-      background: var(--orange); color: #fff; text-decoration: none;
+      background: var(--orange); color: var(--on-accent); text-decoration: none;
       font-family: var(--display); font-size: 13px; font-weight: 700;
       padding: 9px 18px; border-radius: 8px; transition: opacity .2s;
     }
@@ -40,7 +50,7 @@
     .legal-tag { font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; }
     .legal-wrap h1 { font-family: var(--display); font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -1.5px; line-height: 1.05; margin-bottom: .5rem; }
     .legal-meta { font-size: 13px; color: var(--faint); margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid var(--border); }
-    .callout { background: rgba(255,107,0,.08); border: 1px solid rgba(255,107,0,.2); border-radius: 12px; padding: 1.25rem 1.5rem; margin: 2rem 0; font-size: .925rem; color: var(--muted); font-weight: 300; line-height: 1.7; }
+    .callout { background: rgba(79,216,171,.08); border: 1px solid rgba(79,216,171,.25); border-radius: 12px; padding: 1.25rem 1.5rem; margin: 2rem 0; font-size: .925rem; color: var(--muted); font-weight: 300; line-height: 1.7; }
     .callout strong { color: var(--orange); font-weight: 500; }
     h2 { font-family: var(--display); font-size: 1.1rem; font-weight: 700; letter-spacing: -.3px; color: var(--text); margin: 3rem 0 .75rem; padding-top: 2rem; border-top: 1px solid var(--border); }
     h2:first-of-type { border-top: none; padding-top: 0; margin-top: 1rem; }
@@ -70,10 +80,10 @@
   <div class="legal-wrap">
     <div class="legal-tag">Legal</div>
     <h1>Privacy Policy</h1>
-    <p class="legal-meta">Last updated: June 2026 &nbsp;·&nbsp; Effective immediately</p>
+    <p class="legal-meta">Last updated: August 2026 &nbsp;·&nbsp; Effective immediately</p>
 
     <div class="callout">
-      <strong>The short version:</strong> We collect as little data as possible. We don't know who you are, we don't sell anything about you, and your lesson content stays on your device or in your private iCloud. This policy explains what we do collect and why.
+      <strong>The short version:</strong> We collect as little personal data as possible. We don't know your name, email, or Apple ID. But it's important you understand this: <strong>lessons you create are public</strong> — anyone using the app can find and listen to them through Charts and search, the same way you can find lessons other people have made. This isn't private cloud storage; it's a shared library. This policy explains exactly what that means.
     </div>
 
     <h2>Who we are</h2>
@@ -82,10 +92,10 @@
     <h2>What we collect</h2>
     <p>TTL is designed to work without collecting personal information. Here is everything we do collect:</p>
     <ul>
-      <li><strong>Device identifier (IDFV)</strong> — Apple's Identifier for Vendor. A device-level identifier that cannot be linked to your Apple ID or personal identity. Resets if you uninstall. Used solely for anonymous analytics.</li>
-      <li><strong>Anonymous usage events</strong> — events such as "lesson generated", "app opened", and "lesson completed" sent to Mixpanel. These contain no personal identifiers, no lesson content, and no location data.</li>
+      <li><strong>Device identifier (IDFV)</strong> — Apple's Identifier for Vendor. A device-level identifier that cannot be linked to your Apple ID or personal identity. Resets if you uninstall. Used for anonymous analytics and to identify which lessons in the shared catalog were created by your device (so we can show you "Your Library").</li>
+      <li><strong>Anonymous usage events</strong> — events such as "lesson generated", "app opened", "series completed", and "lesson shared" sent to Mixpanel. These contain no personal identifiers, no lesson audio, and no location data.</li>
       <li><strong>Subscription status</strong> — whether you are on the free, monthly, or annual plan. Managed entirely by Apple via StoreKit 2. We do not receive or store your payment details.</li>
-      <li><strong>Saved lessons (annual subscribers only)</strong> — lessons you choose to save are stored in your private iCloud container. This data is controlled by you and cannot be accessed by us.</li>
+      <li><strong>Lessons you create</strong> — see "Lessons you create are public" below. This is the most important thing in this policy.</li>
     </ul>
 
     <h2>What we do not collect</h2>
@@ -93,34 +103,51 @@
       <li>Your name, email address, or Apple ID</li>
       <li>Your location or GPS data</li>
       <li>Microphone, camera, or contacts access</li>
-      <li>The subjects or content of your lessons</li>
       <li>Browsing history or cross-app tracking</li>
     </ul>
 
+    <h2>Lessons you create are public</h2>
+    <p>This is a deliberate part of how TTL works, and we want to be completely upfront about it. When you generate a lesson or a series, the resulting subject, script, narration, and artwork are stored in a <strong>shared catalog</strong> that every user of the app can browse and play — through Charts, search, and recently-created lesson feeds. This is what lets everyone listen for free, including people who never generate a lesson themselves.</p>
+    <p>Your device's anonymous identifier (see above) is attached to what you create so the app can show it back to you under "Your Library" — but this identifier cannot be traced to your name, email, or Apple ID by us or by anyone else using the app. Nobody browsing Charts can see who created a given lesson.</p>
+    <p>You can delete anything you've created at any time from your Library. Deleting a lesson removes it from the shared catalog entirely — for everyone, not just from your own view of it. Uninstalling the app does <strong>not</strong> delete lessons you've created; they remain in the shared catalog until you explicitly delete them (from the same device, before uninstalling) or contact us to request removal.</p>
+    <p>Please don't include personal information in a lesson's subject — subjects are visible to every user of the app.</p>
+
+    <h2>Playlists</h2>
+    <p>Playlists you build are stored locally on your device only. They are never uploaded, synced, or visible to anyone else — including us. Uninstalling the app permanently deletes them.</p>
+
+    <h2>Notifications</h2>
+    <p>TTL can send an optional daily local reminder featuring a randomly selected lesson from the shared catalog. This is entirely opt-in, requested only when you turn it on in Settings, and can be turned off at any time in Settings or in iPhone Settings → Notifications.</p>
+
+    <h2>Sharing</h2>
+    <p>When you share a lesson or series, you're generating a link that leads either directly into the app (if the recipient has it installed) or to a simple preview page (if they don't). Anyone with that link can access that specific lesson — links aren't personal or traceable back to whoever shared them.</p>
+
     <h2>How your lessons are generated</h2>
-    <p>When you generate a lesson, your chosen subject and settings are sent to our secure proxy, which uses AI services to generate the script and audio narration. These requests contain only your lesson topic and configuration — no personal information is included.</p>
-    <p>An anonymised copy of each generated lesson (subject, depth, duration — no audio, no identifying information) is stored in a public database to power our lesson cache and featured lessons. This anonymised record cannot be linked back to you.</p>
+    <p>When you generate a lesson, your chosen subject is sent to our secure proxy, which uses AI services to generate the script and audio narration. These requests contain only your lesson topic and configuration — no personal information is included.</p>
 
     <h2>Advertising</h2>
     <p>Free plan users see banner advertisements served by Google AdMob. AdMob may use device advertising identifiers to show relevant ads. You can limit ad tracking in iPhone Settings → Privacy & Security → Tracking. Paid subscribers see no ads.</p>
 
     <h2>Analytics</h2>
-    <p>We use Mixpanel routed through the EU endpoint to understand how the app is used in aggregate. All analytics are anonymised. We do not use analytics to identify individual users or build personal profiles.</p>
+    <p>We use Mixpanel, routed through the EU endpoint, to understand how the app is used in aggregate. All analytics are anonymised and tied only to your device identifier, never to a real-world identity. We do not use analytics to build personal profiles or identify who you are.</p>
 
     <h2>Data retention</h2>
-    <p>Anonymous analytics events are retained for up to 12 months. Saved lessons in your private iCloud container are retained until you delete them or uninstall the app. The anonymised lesson cache is retained to power the featured lessons feature and contains no information that could identify you.</p>
+    <p>Anonymous analytics events are retained for up to 12 months. Playlists and playback resume-position data live only on your device and are deleted when you uninstall the app. Lessons you create remain in the shared catalog until you delete them yourself or request removal — uninstalling alone does not remove them, since they exist for other users to discover, not just for you.</p>
+
+    <h2>Content moderation</h2>
+    <p>Lessons may be automatically flagged as adult content based on their subject matter, and are visually marked as such wherever they appear in the app. We may remove content that violates our Terms of Service.</p>
 
     <h2>Your rights</h2>
-    <p>Under applicable data protection law you have the right to access, correct, or request deletion of personal data we hold. Because TTL does not collect personally identifiable information, there is typically nothing to action. You can:</p>
+    <p>Under applicable data protection law you have the right to access, correct, or request deletion of personal data we hold. You can:</p>
     <ul>
+      <li>Delete any lesson or series you've created directly from your Library, at any time</li>
       <li>Opt out of analytics by uninstalling the app</li>
-      <li>Delete saved lessons from within the app or via iCloud settings</li>
+      <li>Turn off the daily notification at any time in Settings</li>
       <li>Manage ad tracking in iPhone Settings → Privacy & Security → Tracking</li>
-      <li><a href="mailto:jamieasbright@gmail.com">Contact us</a> with any data requests</li>
+      <li><a href="mailto:jamieasbright@gmail.com">Contact us</a> with any data requests, including requesting removal of specific lesson content after uninstalling</li>
     </ul>
 
     <h2>Children</h2>
-    <p>TTL is not directed at children under 13 (or 16 in certain jurisdictions). We do not knowingly collect data from children. However, when we deem a lesson as adult content, it will be tagged as so.</p>
+    <p>TTL is not directed at children under 13 (or 16 in certain jurisdictions). We do not knowingly collect data from children. Given lessons are created by users and visible to everyone in the app, please don't create lessons intended for or directed at children with adult content, and be aware that the shared catalog reflects what other adult users have created.</p>
 
     <h2>Changes to this policy</h2>
     <p>We may update this Privacy Policy from time to time. When we do we will update the date above. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
