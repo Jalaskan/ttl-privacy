@@ -18,8 +18,8 @@
       --card:      #223852;
       --input:     #03070C;
       --border:    #486B84;
-      --orange:    #4FD8AB;   /* primary accent (mint) */
-      --orange2:   #6EE8C4;
+      --mint:    #4FD8AB;   /* primary accent (mint) */
+      --mint2:   #6EE8C4;
       --on-accent: #06131A;
       --text:      #EAFAF3;
       --muted:     #8FB8AC;
@@ -28,7 +28,7 @@
     }
     html { scroll-behavior: smooth; }
     body { background: var(--bg); color: var(--text); font-family: var(--body); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
-    a { color: var(--orange); text-decoration: underline; text-underline-offset: 3px; }
+    a { color: var(--mint); text-decoration: underline; text-underline-offset: 3px; }
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
@@ -41,23 +41,23 @@
     .nav-logo span { font-family: var(--display); font-size: 17px; font-weight: 800; letter-spacing: -.5px; }
     .nav-cta {
       display: inline-flex; align-items: center; gap: 8px;
-      background: var(--orange); color: var(--on-accent); text-decoration: none;
+      background: var(--mint); color: var(--on-accent); text-decoration: none;
       font-family: var(--display); font-size: 13px; font-weight: 700;
       padding: 9px 18px; border-radius: 8px; transition: opacity .2s;
     }
     .nav-cta:hover { opacity: .88; }
     .legal-wrap { max-width: 720px; margin: 0 auto; padding: 120px 2rem 6rem; }
-    .legal-tag { font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; }
+    .legal-tag { font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--mint); margin-bottom: 1rem; }
     .legal-wrap h1 { font-family: var(--display); font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -1.5px; line-height: 1.05; margin-bottom: .5rem; }
     .legal-meta { font-size: 13px; color: var(--faint); margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid var(--border); }
     .callout { background: rgba(79,216,171,.08); border: 1px solid rgba(79,216,171,.25); border-radius: 12px; padding: 1.25rem 1.5rem; margin: 2rem 0; font-size: .925rem; color: var(--muted); font-weight: 300; line-height: 1.7; }
-    .callout strong { color: var(--orange); font-weight: 500; }
+    .callout strong { color: var(--mint); font-weight: 500; }
     h2 { font-family: var(--display); font-size: 1.1rem; font-weight: 700; letter-spacing: -.3px; color: var(--text); margin: 3rem 0 .75rem; padding-top: 2rem; border-top: 1px solid var(--border); }
     h2:first-of-type { border-top: none; padding-top: 0; margin-top: 1rem; }
     p { font-size: .95rem; color: var(--muted); line-height: 1.8; font-weight: 300; margin-bottom: 1rem; }
     ul { list-style: none; margin: 1rem 0 1.5rem; display: flex; flex-direction: column; gap: .6rem; }
     ul li { font-size: .95rem; color: var(--muted); font-weight: 300; line-height: 1.7; padding-left: 1.25rem; position: relative; }
-    ul li::before { content: '—'; position: absolute; left: 0; color: var(--orange); font-size: .85rem; }
+    ul li::before { content: '—'; position: absolute; left: 0; color: var(--mint); font-size: .85rem; }
     strong { color: var(--text); font-weight: 500; }
     table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .875rem; }
     th { text-align: left; font-family: var(--display); font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--faint); padding: .6rem 1rem .6rem 0; border-bottom: 1px solid var(--border); }
