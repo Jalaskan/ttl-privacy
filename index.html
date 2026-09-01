@@ -23,8 +23,8 @@
       --card:      #223852;
       --input:     #03070C;
       --border:    #486B84;
-      --orange:    #4FD8AB;   /* primary accent (mint) — kept the variable name so nothing else needs renaming */
-      --orange2:   #6EE8C4;   /* lighter accent variant */
+      --mint:    #4FD8AB;   /* primary accent */
+      --mint2:   #6EE8C4;   /* lighter accent variant */
       --on-accent: #06131A;   /* dark navy — used for text/icons sitting on a solid mint fill, since mint is too light for white-on-top to read well */
       --text:      #EAFAF3;
       --muted:     #8FB8AC;
@@ -54,7 +54,7 @@
     .nav-links a:hover { color: var(--text); }
     .nav-cta {
       display: inline-flex; align-items: center; gap: 8px;
-      background: var(--orange); color: var(--on-accent);
+      background: var(--mint); color: var(--on-accent);
       font-family: var(--display); font-size: 13px; font-weight: 700;
       padding: 9px 18px; border-radius: 8px;
       transition: opacity .2s, transform .15s;
@@ -88,23 +88,23 @@
     .hero-label {
       display: inline-flex; align-items: center; gap: 8px;
       background: rgba(79,216,171,.12); border: 1px solid rgba(79,216,171,.25);
-      color: var(--orange); font-size: 11px; font-weight: 500; letter-spacing: 1.5px;
+      color: var(--mint); font-size: 11px; font-weight: 500; letter-spacing: 1.5px;
       text-transform: uppercase; padding: 6px 14px; border-radius: 100px;
       margin-bottom: 1.75rem; width: fit-content;
     }
-    .hero-label::before { content: ''; width: 6px; height: 6px; background: var(--orange); border-radius: 50%; animation: pulse 2s infinite; }
+    .hero-label::before { content: ''; width: 6px; height: 6px; background: var(--mint); border-radius: 50%; animation: pulse 2s infinite; }
     @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:.3; } }
     .hero h1 {
       font-family: var(--display); font-size: clamp(3rem, 6.5vw, 6rem);
       font-weight: 800; line-height: 1.0; letter-spacing: -3px;
       margin-bottom: 1.75rem;
     }
-    .hero h1 em { font-style: normal; color: var(--orange); }
+    .hero h1 em { font-style: normal; color: var(--mint); }
     .hero-sub { font-size: 1.15rem; color: var(--muted); max-width: 480px; margin-bottom: 2.5rem; font-weight: 300; line-height: 1.7; }
     .hero-actions { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
     .btn-primary {
       display: inline-flex; align-items: center; gap: 10px;
-      background: var(--orange); color: var(--on-accent);
+      background: var(--mint); color: var(--on-accent);
       font-family: var(--display); font-size: 15px; font-weight: 700;
       padding: 15px 30px; border-radius: 12px;
       transition: opacity .2s, transform .15s;
@@ -136,7 +136,7 @@
     /* ── SECTIONS ── */
     .section { padding: 7rem 2rem; }
     .section-inner { max-width: 1100px; margin: 0 auto; }
-    .section-label { font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; }
+    .section-label { font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--mint); margin-bottom: 1rem; }
     .section-title { font-family: var(--display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 1.25rem; }
     .section-sub { font-size: 1.05rem; color: var(--muted); max-width: 520px; line-height: 1.7; font-weight: 300; }
 
@@ -144,7 +144,7 @@
     .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin-top: 4rem; background: var(--border); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; }
     .step { background: var(--card); padding: 2.5rem; position: relative; transition: background .2s; }
     .step:hover { background: var(--bg2); }
-    .step-num { font-family: var(--display); font-size: 3.5rem; font-weight: 800; color: var(--orange); opacity: .25; line-height: 1; margin-bottom: 1.5rem; }
+    .step-num { font-family: var(--display); font-size: 3.5rem; font-weight: 800; color: var(--mint); opacity: .25; line-height: 1; margin-bottom: 1.5rem; }
     .step h3 { font-family: var(--display); font-size: 1.1rem; font-weight: 700; margin-bottom: .6rem; letter-spacing: -.3px; }
     .step p { font-size: .9rem; color: var(--muted); line-height: 1.65; font-weight: 300; }
     .step-icon { width: 40px; height: 40px; background: rgba(79,216,171,.1); border: 1px solid rgba(79,216,171,.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; font-size: 18px; }
@@ -154,15 +154,15 @@
     .voices-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 4rem; background: var(--border); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; }
     .voice-card { background: var(--card); padding: 2rem; transition: background .2s; }
     .voice-card:hover { background: var(--bg2); }
-    .voice-avatar { width: 48px; height: 48px; background: rgba(79,216,171,.12); border: 1px solid rgba(79,216,171,.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-family: var(--display); font-size: 1rem; font-weight: 800; color: var(--orange); }
+    .voice-avatar { width: 48px; height: 48px; background: rgba(79,216,171,.12); border: 1px solid rgba(79,216,171,.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-family: var(--display); font-size: 1rem; font-weight: 800; color: var(--mint); }
     .voice-name { font-family: var(--display); font-size: 1.1rem; font-weight: 700; margin-bottom: .35rem; }
-    .voice-accent { font-size: 11px; color: var(--orange); font-weight: 500; letter-spacing: 1px; text-transform: uppercase; margin-bottom: .5rem; }
+    .voice-accent { font-size: 11px; color: var(--mint); font-weight: 500; letter-spacing: 1px; text-transform: uppercase; margin-bottom: .5rem; }
     .voice-desc { font-size: .875rem; color: var(--muted); font-weight: 300; line-height: 1.6; }
     .voices-note { margin-top: 1.5rem; font-size: 13px; color: var(--faint); text-align: center; }
 
     /* ── FEATURED ── */
     .featured-band { background: rgba(79,216,171,.06); border: 1px solid rgba(79,216,171,.15); border-radius: 16px; padding: 2rem 2.5rem; margin-top: 4rem; display: flex; align-items: center; gap: 2rem; }
-    .featured-badge { background: var(--orange); color: var(--on-accent); font-family: var(--display); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 12px; border-radius: 100px; white-space: nowrap; flex-shrink: 0; }
+    .featured-badge { background: var(--mint); color: var(--on-accent); font-family: var(--display); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 12px; border-radius: 100px; white-space: nowrap; flex-shrink: 0; }
     .featured-band p { font-size: 1rem; color: var(--muted); font-weight: 300; line-height: 1.6; }
     .featured-band p strong { color: var(--text); font-weight: 500; }
 
@@ -171,7 +171,7 @@
     .price-card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; position: relative; transition: border-color .2s; }
     .price-card:hover { border-color: #5C87A3; }
     .price-card.featured { border-color: rgba(79,216,171,.35); background: linear-gradient(145deg, #223852, #0F2A22); }
-    .price-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--orange); color: var(--on-accent); font-family: var(--display); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 16px; border-radius: 100px; white-space: nowrap; }
+    .price-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--mint); color: var(--on-accent); font-family: var(--display); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 16px; border-radius: 100px; white-space: nowrap; }
     .price-tier { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 1.25rem; }
     .price-amount { font-family: var(--display); font-size: 3rem; font-weight: 800; letter-spacing: -2px; line-height: 1; margin-bottom: .4rem; }
     .price-amount sup { font-size: 1.3rem; font-weight: 500; letter-spacing: 0; vertical-align: super; margin-right: 2px; }
@@ -179,14 +179,14 @@
     .price-divider { height: 1px; background: var(--border); margin-bottom: 2rem; }
     .price-features { list-style: none; display: flex; flex-direction: column; gap: .85rem; margin-bottom: 2rem; }
     .price-features li { display: flex; align-items: flex-start; gap: 10px; font-size: .9rem; color: var(--muted); font-weight: 300; }
-    .price-features li::before { content: '✓'; color: var(--orange); font-weight: 700; font-size: .85rem; flex-shrink: 0; margin-top: 2px; }
+    .price-features li::before { content: '✓'; color: var(--mint); font-weight: 700; font-size: .85rem; flex-shrink: 0; margin-top: 2px; }
     .price-features li.minus::before { content: '—'; color: var(--faint); }
     .price-cta { display: block; text-align: center; padding: 13px; border-radius: 10px; font-family: var(--display); font-size: 14px; font-weight: 700; transition: all .2s; }
     .price-cta.outline { border: 1px solid var(--border); color: var(--muted); }
     .price-cta.outline:hover { border-color: var(--muted); color: var(--text); }
-    .price-cta.solid { background: var(--orange); color: var(--on-accent); box-shadow: 0 0 24px rgba(79,216,171,.3); }
+    .price-cta.solid { background: var(--mint); color: var(--on-accent); box-shadow: 0 0 24px rgba(79,216,171,.3); }
     .price-cta.solid:hover { opacity: .9; }
-    .price-saving { font-size: 11px; color: var(--orange); text-align: center; margin-top: .75rem; font-weight: 500; }
+    .price-saving { font-size: 11px; color: var(--mint); text-align: center; margin-top: .75rem; font-weight: 500; }
 
     /* ── CTA STRIP ── */
     .cta-strip { background: var(--bg2); border-top: 1px solid var(--border); padding: 6rem 2rem; text-align: center; }
@@ -219,7 +219,7 @@
     /* ── AUDIO ── */
     .audio-bar { position: fixed; bottom: 2rem; right: 2rem; z-index: 200; }
     .audio-btn {
-      width: 48px; height: 48px; border-radius: 50%; background: var(--orange);
+      width: 48px; height: 48px; border-radius: 50%; background: var(--mint);
       border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
       box-shadow: 0 0 24px rgba(79,216,171,.5), 0 4px 16px rgba(0,0,0,.4);
       transition: transform .2s, box-shadow .2s;
