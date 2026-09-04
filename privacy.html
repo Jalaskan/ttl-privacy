@@ -96,13 +96,14 @@
       <li><strong>Anonymous usage events</strong> — events such as "lesson generated", "app opened", "series completed", and "lesson shared" sent to Mixpanel. These contain no personal identifiers, no lesson audio, and no location data.</li>
       <li><strong>Subscription status</strong> — whether you are on the free, monthly, or annual plan. Managed entirely by Apple via StoreKit 2. We do not receive or store your payment details.</li>
       <li><strong>Lessons you create</strong> — see "Lessons you create are public" below. This is the most important thing in this policy.</li>
+      <li><strong>Your spoken question, if you use Ask a Question</strong> — see "Ask a Question" below.</li>
     </ul>
 
     <h2>What we do not collect</h2>
     <ul>
       <li>Your name, email address, or Apple ID</li>
       <li>Your location or GPS data</li>
-      <li>Microphone, camera, or contacts access</li>
+      <li>Camera or contacts access</li>
       <li>Browsing history or cross-app tracking</li>
     </ul>
 
@@ -120,6 +121,10 @@
 
     <h2>Sharing</h2>
     <p>When you share a lesson or series, you're generating a link that leads either directly into the app (if the recipient has it installed) or to a simple preview page (if they don't). Anyone with that link can access that specific lesson — links aren't personal or traceable back to whoever shared them.</p>
+
+    <h2>Ask a Question</h2>
+    <p>If you tap "Ask a Question" after a lesson finishes, TTL requests microphone access to hear your spoken question. Your voice is transcribed to text using Apple's Speech framework, processed on your device wherever your device and language support that. On the small number of devices or languages where on-device transcription isn't available, Apple's own servers handle the transcription instead — TTL's own servers never receive your audio either way, only the transcribed text once that step is complete.</p>
+    <p>Only that transcribed text — never the audio itself — is sent to our secure proxy to generate a spoken answer in the same narrator voice. Neither your question nor the answer is saved anywhere by us; the whole exchange disappears once you leave the screen. This feature is entirely optional, only requests microphone access the first time you use it, and is only available with an active subscription.</p>
 
     <h2>How your lessons are generated</h2>
     <p>When you generate a lesson, your chosen subject is sent to our secure proxy, which uses AI services to generate the script and audio narration. These requests contain only your lesson topic and configuration — no personal information is included.</p>
